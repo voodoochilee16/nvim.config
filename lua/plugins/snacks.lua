@@ -6,7 +6,7 @@ return {
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
-      dashboard = { enabled = false },
+      dashboard = { enabled = true },
       explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
@@ -14,7 +14,23 @@ return {
         enabled = true,
         timeout = 3000,
       },
-      picker = { enabled = true },
+
+      picker = {
+        sources = {
+          -- Configure files picker to show hidden and ignored files by default
+          files = {
+            hidden = false, -- Show hidden files
+            ignored = true, -- Show ignored files
+          },
+          -- Configure explorer to show hidden and ignored files by default
+          explorer = {
+            hidden = true, -- Show hidden files
+            ignored = true, -- Show git ignored files
+          },
+        },
+      },
+
+      -- picker = { enabled = true },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
